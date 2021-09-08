@@ -15,11 +15,13 @@ set laststatus=2
 set noshowmode
 set showcmd
 set numberwidth=1
+set encoding=UTF-8
 
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 
 Plug 'tpope/vim-fugitive'
 Plug 'hrsh7th/nvim-compe'
@@ -32,6 +34,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Tree
 Plug 'scrooloose/nerdtree'
@@ -44,8 +47,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()
-colorscheme gruvbox
-
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme gruvbox 
 
 
 let NERDTreeQuitOnOpen=1
@@ -224,4 +229,27 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
 
